@@ -26,14 +26,13 @@ export const GITHUB_EDIT_URL = `https://github.com/withastro/astro/blob/main/doc
 // Uncomment this to enable site search.
 // See "Algolia" section of the README for more information.
 export const ALGOLIA = {
-    indexName: 'XXXXXXXXXX',
-    appId: 'XXXXXXXXXX',
-    apiKey: 'XXXXXXXXXX',
+	indexName: 'XXXXXXXXXX',
+	appId: 'XXXXXXXXXX',
+	apiKey: 'XXXXXXXXXX',
 }
 
 export const SIDEBAR = {
-	en: [
-		{ text: '', header: true },
+	en: [		
 		{ text: 'Section Header', header: true },
 		{ text: 'Introduction', link: 'en/introduction' },
 		{ text: 'Page 2', link: 'en/page-2' },

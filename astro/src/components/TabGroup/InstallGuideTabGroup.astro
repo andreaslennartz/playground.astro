@@ -1,0 +1,14 @@
+---
+import './TabGroup.css';
+
+const currentPage = new URL(Astro.request.url).pathname;
+const segments = currentPage.split('/');
+---
+<div class="TabGroup no-flex pull-wide">
+	<a href={`/install/auto/`} class={segments.includes('auto') ? 'active' : ''}>
+		TabGroup1
+	</a>
+	<a href={`/install/manual/`} class={segments.includes('manual') ? 'active' : ''}>
+		TabGroup2
+	</a>
+</div>
