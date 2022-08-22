@@ -20,7 +20,7 @@ const lang = currentPage && getLanguageFromURL(currentPage);
 		<div class="logo flex">
 			<a href="/">
 				<AstroLogo size={40} />
-				<h1>{CONFIG.SITE.title ?? 'Documentation'}</h1>
+				<h1>{CONFIG.SITE.title ?? 'ETLBox'}</h1>
 			</a>
 		</div>
 		<div style="margin: 2rem 0; text-align: center;">
@@ -69,7 +69,7 @@ const lang = currentPage && getLanguageFromURL(currentPage);
 		padding: 0.5em 0.25em;
 		margin: -0.5em -0.25em;
 		text-decoration: none;
-		font-weight: bold;
+		font-weight: bold;		
 	}
 
 	.logo a {
@@ -79,7 +79,7 @@ const lang = currentPage && getLanguageFromURL(currentPage);
 
 	.logo a:hover,
 	.logo a:focus {
-		color: var(--theme-text-accent);
+		color: var(--theme-text);
 	}
 
 	.logo h1 {
