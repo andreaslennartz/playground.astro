@@ -23,10 +23,12 @@ const lang = currentPage && getLanguageFromURL(currentPage);
 				<h1>{CONFIG.SITE.title ?? "ETLBox"}</h1>
 			</a>
 		</div>
-		<div>
-			<ThemeToggleButton client:visible />
-		</div>
-		<div style="flex-grow: 1;"></div>
+		
+		<ThemeToggleButton 
+				client:visible 
+				labels={{  useLight: 'themeToggle.useLight', useDark: 'themeToggle.useDark'  }}
+				isInsideHeader={true} 
+			/>
 		{
 			KNOWN_LANGUAGE_CODES.length > 1 && (
 				<LanguageSelect lang={lang} client:idle />
