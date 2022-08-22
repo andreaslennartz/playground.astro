@@ -1,12 +1,12 @@
 ---
-import { getLanguageFromURL, KNOWN_LANGUAGE_CODES } from '../../languages';
-import * as CONFIG from '../../config';
-import AstroLogo from './AstroLogo.astro';
-import SkipToContent from './SkipToContent.astro';
-import SidebarToggle from './SidebarToggle';
-import LanguageSelect from './LanguageSelect';
-import Search from './Search';
-import ThemeToggleButton from '../ThemeToggleButton/ThemeToggleButton';
+import { getLanguageFromURL, KNOWN_LANGUAGE_CODES } from "../../languages";
+import * as CONFIG from "../../config";
+import ETLBoxLogo from "./ETLBoxLogo.astro";
+import SkipToContent from "./SkipToContent.astro";
+import SidebarToggle from "./SidebarToggle";
+import LanguageSelect from "./LanguageSelect";
+import Search from "./Search";
+import ThemeToggleButton from "../ThemeToggleButton/ThemeToggleButton";
 const { currentPage } = Astro.props;
 const lang = currentPage && getLanguageFromURL(currentPage);
 ---
@@ -19,20 +19,26 @@ const lang = currentPage && getLanguageFromURL(currentPage);
 		</div>
 		<div class="logo flex">
 			<a href="/">
-				<AstroLogo size={40} />
-				<h1>{CONFIG.SITE.title ?? 'ETLBox'}</h1>
+				<ETLBoxLogo size={40} />
+				<h1>{CONFIG.SITE.title ?? "ETLBox"}</h1>
 			</a>
 		</div>
-		<div style="margin: 2rem 0; text-align: center;">
+		<div>
 			<ThemeToggleButton client:visible />
 		</div>
 		<div style="flex-grow: 1;"></div>
-		{KNOWN_LANGUAGE_CODES.length > 1 && <LanguageSelect lang={lang} client:idle />}
-		{CONFIG.ALGOLIA && (
-			<div class="search-item">
-				<Search client:idle />
-			</div>
-		)}
+		{
+			KNOWN_LANGUAGE_CODES.length > 1 && (
+				<LanguageSelect lang={lang} client:idle />
+			)
+		}
+		{
+			CONFIG.ALGOLIA && (
+				<div class="search-item">
+					<Search client:idle />
+				</div>
+			)
+		}
 	</nav>
 </header>
 
@@ -69,7 +75,7 @@ const lang = currentPage && getLanguageFromURL(currentPage);
 		padding: 0.5em 0.25em;
 		margin: -0.5em -0.25em;
 		text-decoration: none;
-		font-weight: bold;		
+		font-weight: bold;
 	}
 
 	.logo a {
