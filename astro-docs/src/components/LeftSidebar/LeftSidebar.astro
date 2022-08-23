@@ -1,5 +1,4 @@
 ---
-import Sponsors from './Sponsors.astro';
 import { removeLeadingSlash, removeTrailingSlash } from '../../util';
 import { getNav, useTranslations } from "../../i18n/util";
 import SidebarContent from './SidebarContent.astro';
@@ -49,9 +48,6 @@ for (const section of sidebarSections) {
 				client:visible 
 				labels={{  useLight: t('themeToggle.useLight'), useDark: t('themeToggle.useDark')  }} 
 			/>
-		</li>
-		<li>
-			<Sponsors />
 		</li>
 	</ul>
 </nav>
