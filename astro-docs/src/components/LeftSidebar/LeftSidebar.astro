@@ -2,7 +2,7 @@
 import { removeLeadingSlash, removeTrailingSlash } from '../../util';
 import { getNav, useTranslations } from "../../i18n/util";
 import SidebarContent from './SidebarContent.astro';
-import SidebarToggleTabGroup from '../TabGroup/SidebarToggleTabGroup';
+
 import ThemeToggleButton from "../Header/ThemeToggleButton";
 
 export interface Props {
@@ -25,8 +25,9 @@ const sidebarSections = (await getNav(Astro)).reduce((collection, item) => {
 }, [] as Parameters<typeof SidebarContent>[0]['sidebarSections']);
 
 const learnSections = sidebarSections.filter((section) => section.type === 'learn');
+const recipeSections = sidebarSections.filter((section) => section.type === 'recipe');
 const apiSections = sidebarSections.filter((section) => section.type === 'api');
-let activeTab: 'learn' | 'api' = 'learn';
+let activeTab: 'learn' | 'recipe' | 'api' = 'learn';
 for (const section of sidebarSections) {
 	if (section.children.some((item) => currentPageMatch.includes(item.slug))) {
 		activeTab = section.type;
@@ -35,13 +36,10 @@ for (const section of sidebarSections) {
 ---
 
 <nav aria-label={t('leftSidebar.a11yTitle')}>
-	<SidebarToggleTabGroup 
-		client:load 
-		defaultActiveTab={activeTab} 
-		labels={{ learn: t('leftSidebar.learnTab'), api: t('leftSidebar.referenceTab') }}
-	/>
+	
 	<ul class={`nav-groups`}>
 		<SidebarContent type={'learn'} defaultActiveTab={activeTab} sidebarSections={learnSections} {currentPageMatch} />
+		<SidebarContent type={'recipe'} defaultActiveTab={activeTab} sidebarSections={recipeSections} {currentPageMatch} />
 		<SidebarContent type={'api'} defaultActiveTab={activeTab} sidebarSections={apiSections} {currentPageMatch} />		
 		<li style="text-align: center;">
 			<ThemeToggleButton 

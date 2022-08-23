@@ -4,6 +4,9 @@ import SidebarToggle from './SidebarToggle';
 import LanguageSelect from './LanguageSelect';
 import Search from './Search.astro';
 import ThemeToggleButton from './ThemeToggleButton';
+import SidebarToggleTabGroup from '../TabGroup/SidebarToggleTabGroup';
+import { removeLeadingSlash, removeTrailingSlash } from '../../util';
+import { getNav, useTranslations } from "../../i18n/util";
 import { getLanguageFromURL } from '../../util';
 import { getDocSearchStrings, useTranslations } from '../../i18n/util';
 
@@ -11,6 +14,25 @@ const { currentPage } = Astro.props;
 const lang = currentPage && getLanguageFromURL(currentPage);
 const docsearchStrings = getDocSearchStrings(Astro);
 const t = useTranslations(Astro);
+
+const currentPageMatch = removeLeadingSlash(removeTrailingSlash(currentPage));
+
+// Group nav menu by sections to properly render.
+const sidebarSections = (await getNav(Astro)).reduce((collection, item) => {
+	if ('header' in item) {
+		collection.push({ ...item, children: [] });
+	} else {
+		collection[collection.length - 1].children.push(item);
+	}
+	return collection;
+}, [] as Parameters<typeof SidebarContent>[0]['sidebarSections']);
+
+let activeTab: 'learn' | 'recipe' | 'api' = 'learn';
+for (const section of sidebarSections) {
+	if (section.children.some((item) => currentPageMatch.includes(item.slug))) {
+		activeTab = section.type;
+	}
+}
 ---
 
 <header>
@@ -61,6 +83,11 @@ const t = useTranslations(Astro);
 				</li>
 			</ul>
 		</div>
+		<SidebarToggleTabGroup 
+		client:load 
+		defaultActiveTab={activeTab} 
+		labels={{ learn: t('leftSidebar.learnTab'), api: t('leftSidebar.referenceTab') }}
+	/>
 			<ThemeToggleButton 
 				client:visible 
 				labels={{  useLight: t('themeToggle.useLight'), useDark: t('themeToggle.useDark')  }}

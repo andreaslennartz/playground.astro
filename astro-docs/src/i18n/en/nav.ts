@@ -9,5 +9,8 @@
  */
 export default [
 	{ text: 'Start Here', header: true, type: 'learn', key: 'startHere' },
-	{ text: 'Getting Started', slug: 'getting-started/quick-start', key: 'getting-started/quick-start' }	
+	{ text: 'Getting Started', slug: 'getting-started/quick-start', key: 'getting-started/quick-start' },
+
+	{ text: 'Reference', header: true, type: 'api', key: 'reference' },
+	{ text: 'Test1', slug: 'recipe/test1', key: 'recipe/test1' },
 ] as const;
