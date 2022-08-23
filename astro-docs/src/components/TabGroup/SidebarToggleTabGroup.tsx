@@ -2,16 +2,17 @@ import { useState } from 'preact/hooks';
 import './TabGroup.css';
 
 interface Props {
-	defaultActiveTab: 'learn' | 'api';
+	defaultActiveTab: 'learn' | 'recipe' | 'api';
 	labels: {
 		learn: string;
+		recipe: string;
 		api: string;
 	};
 }
 
 const SidebarToggleTabGroup = ({ defaultActiveTab, labels }: Props) => {
 	const [activeTab, setActiveTab] = useState(defaultActiveTab);
-	function toggleType(type: 'learn' | 'api') {
+	function toggleType(type: 'learn' | 'recipe' | 'api') {
 		document.querySelectorAll(`li.nav-group`).forEach((el) => el.classList.remove('active'));
 		document.querySelectorAll(`li.nav-group.${type}`).forEach((el) => el.classList.add('active'));
 		setActiveTab(type);
@@ -20,6 +21,9 @@ const SidebarToggleTabGroup = ({ defaultActiveTab, labels }: Props) => {
 		<div class="TabGroup">
 			<button class={activeTab === 'learn' ? 'active' : ''} onClick={() => toggleType('learn')}>
 				{labels.learn}
+			</button>
+			<button class={activeTab === 'recipe' ? 'active' : ''} onClick={() => toggleType('recipe')}>
+				{labels.recipe}
 			</button>
 			<button class={activeTab === 'api' ? 'active' : ''} onClick={() => toggleType('api')}>
 				{labels.api}

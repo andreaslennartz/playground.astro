@@ -10,6 +10,7 @@ export default UIDictionary({
 	// Left Sidebar
 	'leftSidebar.a11yTitle': 'Primär',
 	'leftSidebar.learnTab': 'Lernen',
+	'leftSidebar.recipeTab': 'Rezepte',
 	'leftSidebar.referenceTab': 'Referenz',
 	'leftSidebar.noTranslations': 'Keine Übersetzungen gefunden',
 	'leftSidebar.viewInEnglish': 'Auf Englisch ansehen',

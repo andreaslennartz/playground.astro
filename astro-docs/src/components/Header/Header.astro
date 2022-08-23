@@ -82,12 +82,13 @@ for (const section of sidebarSections) {
 					</a>
 				</li>
 			</ul>
-		</div>
+		
 		<SidebarToggleTabGroup 
 		client:load 
 		defaultActiveTab={activeTab} 
-		labels={{ learn: t('leftSidebar.learnTab'), api: t('leftSidebar.referenceTab') }}
+		labels={{ learn: t('leftSidebar.learnTab'), recipe: t('leftSidebar.recipeTab'), api: t('leftSidebar.referenceTab') }}
 	/>
+</div>
 			<ThemeToggleButton 
 				client:visible 
 				labels={{  useLight: t('themeToggle.useLight'), useDark: t('themeToggle.useDark')  }}

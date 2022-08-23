@@ -9,6 +9,7 @@ export default {
 	// Left Sidebar
 	'leftSidebar.a11yTitle': 'Primary',
 	'leftSidebar.learnTab': 'Learn',
+	'leftSidebar.recipeTab': 'Recipes',
 	'leftSidebar.referenceTab': 'Reference',
 	'leftSidebar.noTranslations': 'No Translations Found',
 	'leftSidebar.viewInEnglish': 'View in English',
