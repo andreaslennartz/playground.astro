@@ -1,24 +1,12 @@
 {
-  "name": "docs",
-  "version": "0.0.7",
+  "name": "etlbox.docs",
+  "version": "3.0.0",
   "private": true,
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
-    "format": "prettier -w .",
-    "add-language": "node ./scripts/add-language.mjs",
-    "docgen": "node ./scripts/docgen.mjs",
-    "docgen:integrations": "tsm --require=./scripts/lib/filter-warnings.cjs ./scripts/generate-integration-pages.ts",
-    "lint:a11y": "start-test 'yarn build && yarn preview' 3000 'yarn lint:a11y:local'",
-    "lint:a11y:local": "pa11y-ci --sitemap 'http://localhost:3000/sitemap.xml' --sitemap-find 'https://docs.astro.build' --sitemap-replace 'http://localhost:3000'",
-    "lint:a11y:remote": "pa11y-ci --sitemap 'https://docs.astro.build/sitemap.xml'",
-    "lint:linkcheck": "astro build && tsm --require=./scripts/lib/filter-warnings.cjs ./scripts/lint-linkcheck.ts",
-    "lint:linkcheck:nobuild": "tsm --require=./scripts/lib/filter-warnings.cjs ./scripts/lint-linkcheck.ts",
-    "lint:slugcheck": "node ./scripts/lint-slugcheck.mjs",
-    "lint:eslint": "eslint . --ext .js,.ts,.astro",
-    "github:translation-status": "node ./scripts/github-translation-status.mjs"
+    "preview": "astro preview"
   },
   "devDependencies": {
     "@11ty/eleventy-fetch": "^3.0.0",
