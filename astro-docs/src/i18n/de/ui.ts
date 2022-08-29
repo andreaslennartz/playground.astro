@@ -12,6 +12,7 @@ export default UIDictionary({
 	'leftSidebar.learnTab': 'Lernen',
 	'leftSidebar.recipeTab': 'Rezepte',
 	'leftSidebar.referenceTab': 'Referenz',
+	'leftSidebar.pricingTab': 'Preise',
 	'leftSidebar.noTranslations': 'Keine Übersetzungen gefunden',
 	'leftSidebar.viewInEnglish': 'Auf Englisch ansehen',
 	// Right Sidebar

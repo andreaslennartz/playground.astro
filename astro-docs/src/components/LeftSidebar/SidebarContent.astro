@@ -3,11 +3,11 @@ import { getLanguageFromURL, removeSubpageSegment } from '../../util';
 import UIString from '../UIString.astro';
 
 export interface Props {
-	type: 'learn' | 'api';
-	defaultActiveTab: 'learn' | 'api';
+	type: 'learn' | 'api' | 'recipe' | 'pricing';
+	defaultActiveTab: 'learn' | 'api' | 'recipe' | 'pricing';
 	sidebarSections: Array<{
 		text: string;
-		type: 'learn' | 'api';
+		type: 'learn' | 'api' | 'recipe' | 'pricing';
 		children: Array<{ text: string; slug: string; isFallback?: boolean }>;
 	}>;
 	currentPageMatch: string;

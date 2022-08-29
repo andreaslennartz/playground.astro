@@ -28,7 +28,7 @@ const sidebarSections = (await getNav(Astro)).reduce((collection, item) => {
 	return collection;
 }, [] as Parameters<typeof SidebarContent>[0]["sidebarSections"]);
 
-let activeTab: "learn" | "recipe" | "api" = "learn";
+let activeTab: "learn" | "recipe" | "api" | "pricing" = "learn";
 for (const section of sidebarSections) {
 	if (section.children.some((item) => currentPageMatch.includes(item.slug))) {
 		activeTab = section.type;
@@ -64,9 +64,10 @@ for (const section of sidebarSections) {
 					learn: t("leftSidebar.learnTab"),
 					recipe: t("leftSidebar.recipeTab"),
 					api: t("leftSidebar.referenceTab"),
+					pricing: t("leftSidebar.pricingTab"),
 				}}
 			/>
-			
+
 		<ThemeToggleButton
 			client:visible
 			labels={{

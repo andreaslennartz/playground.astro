@@ -11,6 +11,7 @@ export default {
 	'leftSidebar.learnTab': 'Learn',
 	'leftSidebar.recipeTab': 'Recipes',
 	'leftSidebar.referenceTab': 'Reference',
+	'leftSidebar.pricingTab': 'Pricing',
 	'leftSidebar.noTranslations': 'No Translations Found',
 	'leftSidebar.viewInEnglish': 'View in English',
 	// Right Sidebar

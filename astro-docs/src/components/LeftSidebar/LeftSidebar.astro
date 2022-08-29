@@ -27,7 +27,8 @@ const sidebarSections = (await getNav(Astro)).reduce((collection, item) => {
 const learnSections = sidebarSections.filter((section) => section.type === 'learn');
 const recipeSections = sidebarSections.filter((section) => section.type === 'recipe');
 const apiSections = sidebarSections.filter((section) => section.type === 'api');
-let activeTab: 'learn' | 'recipe' | 'api' = 'learn';
+const pricingSections = sidebarSections.filter((section) => section.type === 'pricing');
+let activeTab: 'learn' | 'recipe' | 'api' | 'pricing' = 'learn';
 for (const section of sidebarSections) {
 	if (section.children.some((item) => currentPageMatch.includes(item.slug))) {
 		activeTab = section.type;
@@ -41,6 +42,7 @@ for (const section of sidebarSections) {
 		<SidebarContent type={'learn'} defaultActiveTab={activeTab} sidebarSections={learnSections} {currentPageMatch} />
 		<SidebarContent type={'recipe'} defaultActiveTab={activeTab} sidebarSections={recipeSections} {currentPageMatch} />
 		<SidebarContent type={'api'} defaultActiveTab={activeTab} sidebarSections={apiSections} {currentPageMatch} />		
+		<SidebarContent type={'pricing'} defaultActiveTab={activeTab} sidebarSections={pricingSections} {currentPageMatch} />	
 		<li style="text-align: center;">
 			<ThemeToggleButton 
 				client:visible 
