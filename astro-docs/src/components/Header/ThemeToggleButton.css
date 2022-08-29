@@ -39,15 +39,19 @@
 .hide-toggle-on-smaller-screens {
 	display: none;
 }
-@media (min-width: 50em) {
+
+@media (min-width: 57em) {
+	/* This is for toggle button in sidebar */
 	.theme-toggle {
 		display: none;
 		margin-top: 0;
-	}
+	}	
+	/* This is for toggle button in header */
 	.hide-toggle-on-smaller-screens {
 		display: inline-flex;
 	}
 }
+
 
 input[name='theme-toggle'] {
 	position: absolute;
