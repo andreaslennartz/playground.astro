@@ -1,5 +1,5 @@
 .TabGroup {
-	display: flex;
+	display: none;
 	border-bottom: 4px solid var(--theme-divider);
 }
 
@@ -39,6 +39,13 @@
 		border-bottom-color: Canvas;
 	}
 }
+
+@media (min-width: 50em) {
+	.TabGroup {
+		display: flex;
+	}
+}
+
 
 .TabGroup.no-flex button,
 .TabGroup.no-flex a {
