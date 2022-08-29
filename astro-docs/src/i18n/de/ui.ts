@@ -33,20 +33,6 @@ export default UIDictionary({
 	// Used in previous/next page links at the bottom of pages
 	'articleNav.nextPage': 'Nächste Seite',
 	'articleNav.prevPage': 'Zurück',
-	// Used in `<Since>`: Added in: v0.24.0 [NEW]
-	'since.addedIn': 'Hinzugefügt in:',
-	'since.new': 'Neu',
-	// Installation Guide
-	'install.autoTab': 'Automatische Installation',
-	'install.manualTab': 'Manuelle Installation',
-	// `<DeployGuidesNav>` vocabulary
-	'deploy.sectionTitle': 'Veröffentlichungs-Anleitungen',
-	'deploy.altSectionTitle': 'Weitere Veröffentlichungs-Anleitungen',
-	'deploy.filterLabel': 'Nach Art filtern',
-	'deploy.ssrTag': 'SSR',
-	'deploy.staticTag': 'Statisch',
-	// `<ContributorList>` fallback text
-	'contributors.seeAll': 'Alle Mitwirkenden ansehen',
 	// Fallback content notice shown when a page is not yet translated
 	'fallbackContent.notice': 'Da diese Seite noch nicht auf Deutsch verfügbar ist, siehst du sie auf Englisch. Möchtest du uns helfen?',
 	'fallbackContent.linkText': 'Übersetze diese Seite',

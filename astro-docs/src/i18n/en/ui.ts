@@ -31,21 +31,7 @@ export default {
 	'themeToggle.useDark': 'Use dark theme',
 	// Used in previous/next page links at the bottom of pages
 	'articleNav.nextPage': 'Next Page',
-	'articleNav.prevPage': 'Back',
-	// Used in `<Since>`: Added in: v0.24.0 [NEW]
-	'since.addedIn': 'Added in:',
-	'since.new': 'New',
-	// Installation Guide
-	'install.autoTab': 'Automatic CLI',
-	'install.manualTab': 'Manual Setup',
-	// `<DeployGuidesNav>` vocabulary
-	'deploy.sectionTitle': 'Deployment Guides',
-	'deploy.altSectionTitle': 'More Deployment Guides',
-	'deploy.filterLabel': 'Filter by deploy type',
-	'deploy.ssrTag': 'SSR',
-	'deploy.staticTag': 'Static',
-	// `<ContributorList>` fallback text
-	'contributors.seeAll': 'See all contributors',
+	'articleNav.prevPage': 'Back',	
 	// Fallback content notice shown when a page is not yet translated
 	'fallbackContent.notice': 'This page is not yet available in your language, so we’re showing you the English version. You can help by translating it!',
 	'fallbackContent.linkText': 'Learn more about how you can contribute',
@@ -58,9 +44,4 @@ export default {
 	'aside.tip': 'Tip',
 	'aside.caution': 'Caution',
 	'aside.danger': 'Danger',
-	// Integrations vocabulary
-	'integrations.footerTitle': 'More Integrations',
-	'integrations.renderers': 'UI Frameworks',
-	'integrations.adapters': 'SSR Adapters',
-	'integrations.others': 'Others',
 };
