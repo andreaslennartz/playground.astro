@@ -20,6 +20,7 @@ All ETLBox [packages are hosted on nuget](https://www.nuget.org/packages?q=etlbo
 Simply add it to your project using your nuget package manager.
 
 ```
+// x:src/pages/page-2.md
 dotnet add package ETLBox
 ```
 
@@ -75,7 +76,7 @@ CREATE TABLE  `orders` (
 
 Alternatively, you can already use the Control Flow tasks that are part of the core package of ETLBox. They are very handy if you want to use a simple syntax for basic database operation. 
 
-```C#
+```c#
 SqlConnectionManager sqlConnMan =
     new SqlConnectionManager("Data Source=.;User Id=x;Password=x;");
 
@@ -111,7 +112,7 @@ Looking at the data that we will receive from our demo web endpoint, we see the 
 
 Now let's create a strongly typed object, also known as POCO (Plain old component object) that we can later use in our data flow to hold this data.
 
-```C#
+```c#
 public class OrderRow
   {
       [ColumnMap("Id")]
@@ -141,7 +142,7 @@ The first step consists of creating the components, including a json source, the
 
 Here is the complete code for setting up the components:
 
-```C#
+```c#
 var source = 
   new JsonSource<OrderRow>("https://www.etlbox.net/demo/api/orders", 
   ResourceType.Http);
@@ -188,7 +189,7 @@ The `TextDestination` can be used to generate any kind of output - in our exampl
 
 Now that we are done with the setup, let's continue with the second step and link the components together.
 
-```C#
+```c#
 source.LinkTo(rowTransformation);
 rowTransformation.LinkTo(lookup);
 lookup.LinkTo(multicast);
@@ -206,7 +207,7 @@ When the `Multicast` is connected to the `TextDestination`, you will notice that
 
 Finally, the third step is to start the data flow. To simplify your programmer's life, this can be done with a synchronous call that blocks execution until the flow has finished and all data has arrived in the destination. 
 
-```C#
+```c#
 Network.Execute(source);
 ```
 
@@ -253,7 +254,7 @@ Control Flow tasks let you execute common queries with a unified syntax on your 
 
 Here are some code examples:
 
-```C#
+```c#
 //Create a connection manager 
 var conn = new SqlConnectionManager
   ("Server=.;Trusted_Connection=true;Initial Catalog=ETLBox");
@@ -297,7 +298,7 @@ To set up the nlog configuration, you can create a configuration called `nlog.co
 
 Now you need to create an ILogger instance. This log instance needs to be assigned to the static property `Logging.Logger`. This example uses the `LoggerFactory` for creating the logger instance. You could also retrieve the instance using Dependency Injection - e.g. if you create an Azure Function you already get a valid logger instance that you can use. 
 
-```C#
+```c#
 using var loggerFactory = LoggerFactory.Create(builder => {
     builder
         .AddFilter("Microsoft", Microsoft.Extensions.Logging.LogLevel.Warning)
