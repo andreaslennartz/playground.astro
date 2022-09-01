@@ -9,13 +9,11 @@ import RightSidebar from '../components/RightSidebar/RightSidebar.astro';
 import { getLanguageFromURL } from '../util';
 import { normalizeLangTag } from '../i18n/bcp-normalize';
 import { useTranslations } from '../i18n/util';
-import { rtlLanguages } from '../i18n/languages';
 
 const { content = {}, hideRightSidebar = false } = Astro.props;
 const isFallback = !!Astro.params.fallback;
 const url = new URL(Astro.request.url);
 const lang = getLanguageFromURL(url.pathname);
-const direction = rtlLanguages.has(lang) ? 'rtl' : 'ltr';
 const bcpLang = normalizeLangTag(lang);
 const currentPage = url.pathname;
 const filePath = `src/pages${currentPage.replace(/\/$/, '')}.md`;
@@ -30,7 +28,7 @@ const canonicalURL = new URL(Astro.url.pathname.replace(/([^/])$/, '$1/'), Astro
 if (isFallback) canonicalURL.pathname = canonicalURL.pathname.replace(`/${lang}/`, '/en/');
 ---
 
-<html dir={direction} lang={bcpLang} class="initial">
+<html lang={bcpLang} class="initial">
 	<head>
 		<HeadCommon />
 		<HeadSEO {content} {canonicalURL} />
@@ -142,10 +140,10 @@ if (isFallback) canonicalURL.pathname = canonicalURL.pathname.replace(`/${lang}/
 				{!hideRightSidebar && <RightSidebar content={content} githubEditUrl={githubEditUrl} />}
 			</aside>
 			<div id="main-content" lang={isFallback && 'en'}>
-				<div dir={isFallback ? 'ltr' : direction}>
-					<PageContent {content} {githubEditUrl} {currentPage} layoutDir={direction}>
+				<div>
+					<PageContent {content} {githubEditUrl} {currentPage}>
 						<slot name="header" />
-						{isFallback && <div lang={bcpLang} dir={direction}><FallbackNotice /></div>}
+						{isFallback && <div lang={bcpLang}><FallbackNotice /></div>}
 						<slot />
 					</PageContent>
 				</div>

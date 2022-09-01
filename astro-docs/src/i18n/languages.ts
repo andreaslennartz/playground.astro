@@ -7,4 +7,3 @@ export default {
 	de: 'Deutsch',
 };
 
-export const rtlLanguages = new Set(['ar']);
