@@ -1,9 +1,12 @@
 ---
+import Icon from "./ExternalLinkIcon.astro";
+
 export interface Props {
 	url: string;
     text: string;
 }
 
 const { url,text } = Astro.props as Props;
+const size = 14;
 ---
-<a href={url}>{text}</a>
+<a href={url} target="_blank">{text}</a>&nbsp;<Icon size={size} />

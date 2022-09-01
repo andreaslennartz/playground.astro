@@ -14,8 +14,8 @@ export function remarkExternalLink(): Plugin<[], Root> {
 		visit(tree, (node) => {
 			if (node.type !== 'link') return;
 			
-			if (node.url.startsWith('EXTERNAL:') && node.children.length === 1 && node.children[0].type === 'text') {
-				const extUrl = node.url.replace('EXTERNAL:','');
+			if (node.url.startsWith('EXT:') && node.children.length === 1 && node.children[0].type === 'text') {
+				const extUrl = node.url.replace('EXT:','');
 				const extText = node.children[0].value;
 				node.type='text';
 				delete node.children;
