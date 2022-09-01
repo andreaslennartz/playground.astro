@@ -12,7 +12,7 @@
  */
 export default [
 	{ text: 'Start Here', header: true, type: 'learn', key: 'startHere' },
-	{ text: 'Getting Started', slug: 'docs//quick-start', key: 'docs/getting-started/quick-start' },
+	{ text: 'Getting Started', slug: 'docs/getting-started/quick-start', key: 'docs/getting-started/quick-start' },
 
 
 ] as const;
