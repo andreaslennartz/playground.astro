@@ -10,6 +10,7 @@ import { escape } from 'html-escaper';
 import { tokens, foregroundPrimary, backgroundPrimary } from './syntax-highlighting-theme';
 import { astroAsides } from './integrations/astro-asides';
 import { astroCodeSnippets } from './integrations/astro-code-snippets';
+import { externalLink } from './integrations/externallink';
 import { remarkFallbackLang } from './plugins/remark-fallback-lang';
 
 import languages from './src/i18n/languages';
@@ -53,6 +54,7 @@ export default defineConfig({
 		}),
 		astroAsides(),
 		astroCodeSnippets(),
+		externalLink(),
 	],
 	vite: {
 		plugins: [vitePreact()],
