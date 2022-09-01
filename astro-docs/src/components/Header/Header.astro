@@ -30,6 +30,7 @@ const sidebarSections = (await getNav(Astro)).reduce((collection, item) => {
 
 let activeTab: "learn" | "recipe" | "api" | "pricing" = "learn";
 for (const section of sidebarSections) {
+	if (currentPageMatch === undefined) continue;
 	if (section.children.some((item) => currentPageMatch.includes(item.slug))) {
 		activeTab = section.type;
 	}

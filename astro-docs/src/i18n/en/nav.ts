@@ -6,11 +6,13 @@
  * - All entries MUST include `text` and `key`
  * - Heading entries MUST include `header: true` and `type`
  * - Link entries MUST include `slug` (which excludes the language code)
+ * 
+ * 	{ text: 'Reference', header: true, type: 'api', key: 'reference' },
+	{ text: 'Test1', slug: 'recipe/test1', key: 'recipe/test1' },
  */
 export default [
 	{ text: 'Start Here', header: true, type: 'learn', key: 'startHere' },
-	{ text: 'Getting Started', slug: 'getting-started/quick-start', key: 'getting-started/quick-start' },
+	{ text: 'Getting Started', slug: 'docs//quick-start', key: 'docs/getting-started/quick-start' },
 
-	{ text: 'Reference', header: true, type: 'api', key: 'reference' },
-	{ text: 'Test1', slug: 'recipe/test1', key: 'recipe/test1' },
+
 ] as const;

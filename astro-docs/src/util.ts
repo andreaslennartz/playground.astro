@@ -5,11 +5,13 @@ export function getLanguageFromURL(pathname: string) {
 
 /** Remove \ and / from beginning of string */
 export function removeLeadingSlash(path: string) {
+	if (path === undefined) return;
 	return path.replace(/^[/\\]+/, '');
 }
 
 /** Remove \ and / from end of string */
 export function removeTrailingSlash(path: string) {
+	if (path === undefined) return;
 	return path.replace(/[/\\]+$/, '');
 }
 
