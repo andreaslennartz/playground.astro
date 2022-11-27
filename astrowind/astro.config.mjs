@@ -7,15 +7,10 @@ import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 import image from '@astrojs/image';
 import mdx from '@astrojs/mdx';
-import partytown from '@astrojs/partytown';
 
 import { remarkReadingTime } from './src/utils/frontmatter.mjs';
-import { SITE } from './src/config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-
-const whenExternalScripts = (items = []) =>
-	SITE.googleAnalyticsId ? (Array.isArray(items) ? items.map((item) => item()) : [items()]) : [];
 
 export default defineConfig({
 	/*
@@ -35,13 +30,7 @@ export default defineConfig({
 		image({
 			serviceEntryPoint: '@astrojs/image/sharp',
 		}),
-		mdx(),
-
-		...whenExternalScripts(() =>
-			partytown({
-				config: { forward: ['dataLayer.push'] },
-			})
-		),
+		mdx()
 	],
 
 	markdown: {
