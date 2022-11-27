@@ -2,7 +2,6 @@
 import { AstroSeo } from '@astrolib/seo';
 import { GoogleAnalytics } from '@astrolib/analytics';
 import { getImage } from '@astrojs/image';
-import { getRelativeUrlByFilePath } from '~/utils/directories';
 
 import defaultImageSrc from '~/assets/images/default.png';
 
@@ -30,12 +29,14 @@ const {
 	ogType = 'website',
 } = Astro.props;
 
-const image =
+const image = null
+/*
 	typeof _image === 'string'
 		? new URL(_image, Astro.site)
 		: _image && typeof _image['src'] !== 'undefined'
-		? new URL(getRelativeUrlByFilePath(_image.src), Astro.site)
+		? new URL('getRelativeUrlByFilePath(_image.src)', Astro.site)
 		: null;
+		*/
 ---
 
 <meta charset="UTF-8" />
