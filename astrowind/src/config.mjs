@@ -1,8 +1,18 @@
 export const SITE = {
-	name: 'AstroWind',
+	name: 'ETLBox',
 
-	title: 'AstroWind — Your website with Astro + Tailwind CSS',
-	description: '🚀 AstroWind is a free and ready to start template to make your website using Astro and Tailwind CSS.',
+	title: 'ETLBox - code-first ETL',
+	description: 'ETLBox is a lightweight ETL (extract, transform, load) toolbox and data integration library for .NET',
 
 	googleSiteVerificationId: 'orcPxI47GSa-cRvY11tUe6iGg2IO_RPvnA1q95iEM3M',
+};
+
+export const SIDEBAR = {
+	'Getting started': [
+		{ text: 'Quickstart', link: 'quick-start' },
+		{ text: 'Simple flow', link: 'simple-flow' }
+	],
+	'Database connectors': [
+		{ text: 'Connection managers', link: 'connection-managers' }
+	]
 };

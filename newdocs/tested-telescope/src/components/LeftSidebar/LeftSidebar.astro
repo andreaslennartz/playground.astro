@@ -14,7 +14,7 @@ const langCode = getLanguageFromURL(currentPage);
 const sidebar = SIDEBAR[langCode];
 ---
 
-<nav aria-labelledby="grid-left">
+<nav class="sidebar">
 	<ul class="nav-groups">
 		{
 			Object.entries(sidebar).map(([header, children]) => (

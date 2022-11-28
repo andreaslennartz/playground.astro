@@ -1,0 +1,13 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import LeftSidebar from '~/components/docs/LeftSidebar.astro';
+
+const { meta } = Astro.props;
+---
+
+<Layout {meta}>
+	<LeftSidebar />
+    <main>
+    <slot />
+</main>
+</Layout>
