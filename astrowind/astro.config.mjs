@@ -7,6 +7,7 @@ import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 import image from '@astrojs/image';
 import mdx from '@astrojs/mdx';
+import preact from '@astrojs/preact';
 
 import { remarkReadingTime } from './src/utils/frontmatter.mjs';
 
@@ -21,6 +22,7 @@ export default defineConfig({
 	output: 'static',
 
 	integrations: [
+		preact(),
 		tailwind({
 			config: {
 				applyBaseStyles: false,

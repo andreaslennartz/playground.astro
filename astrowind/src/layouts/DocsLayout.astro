@@ -3,8 +3,16 @@ import Layout from '~/layouts/BaseLayout.astro';
 import LeftSidebar from '~/components/docs/LeftSidebar.astro';
 import Header from '~/components/widgets/Header.astro';
 import Footer from '~/components/widgets/Footer.astro';
+import RightSidebar from '~/components/docs/RightSidebar/RightSidebar.astro';
+import type { MarkdownHeading } from 'astro';
 
 const { meta } = Astro.props;
+
+type Props = {
+	headings: MarkdownHeading[];
+};
+
+const { headings } = Astro.props as Props;
 ---
 
 <Layout {meta}>
@@ -16,6 +24,9 @@ const { meta } = Astro.props;
 				<slot />
 			  </article>
 		</main>
+		<article class="prose lg:prose-md dark:prose-invert prose-code:markdowncode">
+		<RightSidebar headings={headings} />
+	</article>
 	</div>
 	<Footer />
 </Layout>
