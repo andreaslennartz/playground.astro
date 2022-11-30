@@ -10,9 +10,7 @@ export const SITE = {
 export const SIDEBAR = {
 	'Getting started': [
 		{ text: 'Quickstart', link: 'quick-start' },
-		{ text: 'Simple flow', link: 'simple-flow' }
+		{ text: 'Simple flow', link: 'simple-flow' },
 	],
-	'Database connectors': [
-		{ text: 'Connection managers', link: 'connection-managers' }
-	]
+	'Database connectors': [{ text: 'Connection managers', link: 'connection-managers' }],
 };

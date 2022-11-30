@@ -30,19 +30,11 @@ export default defineConfig({
 		image({
 			serviceEntryPoint: '@astrojs/image/sharp',
 		}),
-		mdx()
+		mdx(),
 	],
 
 	markdown: {
 		remarkPlugins: [remarkReadingTime],
 		extendDefaultPlugins: true,
-	},
-
-	vite: {
-		resolve: {
-			alias: {
-				'~': path.resolve(__dirname, './src'),
-			},
-		},
 	},
 });

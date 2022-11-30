@@ -14,12 +14,11 @@ import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const meta = {
 	title: SITE.title,
-	description: SITE.description
+	description: SITE.description,
 };
 ---
 
 <Layout {meta}>
-	<main>
 	<Hero />
 	<Note />
 	<Features />
@@ -29,5 +28,4 @@ const meta = {
 	<FAQs />
 	<Stats />
 	<CallToAction />
-</main>
 </Layout>
