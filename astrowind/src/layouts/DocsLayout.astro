@@ -9,9 +9,12 @@ const { meta } = Astro.props;
 
 <Layout {meta}>
 	<Header />
-	<LeftSidebar />
-	<main>
-		<slot />
-	</main>
+	<div class="flex">
+		<LeftSidebar />
+		<main>
+			<h1>YX</h1>
+			<slot />
+		</main>
+	</div>
 	<Footer />
 </Layout>
