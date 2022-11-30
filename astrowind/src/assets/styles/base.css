@@ -14,58 +14,12 @@
 	.btn-primary {
 		@apply font-semibold bg-primary-600 text-white border-primary-600 hover:bg-primary-800 hover:border-primary-800 hover:text-white dark:text-white dark:bg-primary-700 dark:border-primary-700 dark:hover:border-primary-900 dark:hover:bg-primary-900;
 	}
+
+	.markdowncode {
+		@apply font-mono font-normal
+	}
 }
 
 .dropdown:hover .dropdown-menu {
 	display: block;
-}
-
-[astro-icon].icon-light > * {
-	stroke-width: 1.2;
-}
-
-/* Typography */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	margin-bottom: 0.5rem;
-	font-weight: bold;
-	line-height: 1;
-}
-
-
-:is(h1, h2, h3):not(:first-child) {
-	margin-top: 1rem;
-}
-
-:is(h4, h5, h6):not(:first-child) {
-	margin-top: 1rem;
-}
-
-h1 {
-	font-size: 2rem;
-	font-weight: 800;
-}
-
-h2 {
-	font-size: 1.5rem;
-}
-
-h3 {
-	font-size: 1.3rem;
-}
-
-h4 {
-	font-size: 1.1rem;
-}
-
-h5 {
-	font-size: 1rem;
-}
-
-p {
-	line-height: 1.65em;
 }

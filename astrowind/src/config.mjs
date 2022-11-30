@@ -7,10 +7,3 @@ export const SITE = {
 	googleSiteVerificationId: 'orcPxI47GSa-cRvY11tUe6iGg2IO_RPvnA1q95iEM3M',
 };
 
-export const SIDEBAR = {
-	'Getting started': [
-		{ text: 'Quickstart', link: 'quick-start' },
-		{ text: 'Simple flow', link: 'simple-flow' },
-	],
-	'Database connectors': [{ text: 'Connection managers', link: 'connection-managers' }],
-};

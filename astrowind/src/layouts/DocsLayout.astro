@@ -12,8 +12,9 @@ const { meta } = Astro.props;
 	<div class="flex">
 		<LeftSidebar />
 		<main>
-			<h1>YX</h1>
-			<slot />
+			<article class="prose lg:prose-md dark:prose-invert prose-code:markdowncode">
+				<slot />
+			  </article>
 		</main>
 	</div>
 	<Footer />
