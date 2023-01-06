@@ -1,5 +1,4 @@
 ---
-import AvatarList from './AvatarList.astro';
 type Props = {
 	path: string;
 };
@@ -7,13 +6,6 @@ const { path } = Astro.props as Props;
 ---
 
 <footer>
-	<AvatarList path={path} />
+	<p>crafted with love in berlin</p>
 </footer>
 
-<style>
-	footer {
-		margin-top: auto;
-		padding: 2rem;
-		border-top: 3px solid var(--theme-divider);
-	}
-</style>
