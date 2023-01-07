@@ -21,7 +21,7 @@ const currentFile = `src/pages${currentPage.replace(/\/$/, '')}.md`;
 const githubEditUrl = `${CONFIG.GITHUB_EDIT_URL}/${currentFile}`;
 ---
 
-<html dir={frontmatter.dir ?? 'ltr'} lang={frontmatter.lang ?? 'en-us'}>
+<html lang={frontmatter.lang ?? 'en-us'}>
 	<head>
 		<HeadCommon />
 		<HeadSEO frontmatter={frontmatter} canonicalUrl={canonicalURL} />
@@ -33,8 +33,7 @@ const githubEditUrl = `${CONFIG.GITHUB_EDIT_URL}/${currentFile}`;
 				width: 100%;
 				display: grid;
 				grid-template-rows: var(--theme-navbar-height) 1fr;
-				--gutter: 0.5rem;
-				--doc-padding: 2rem;
+
 			}
 
 			.layout {
@@ -119,7 +118,7 @@ const githubEditUrl = `${CONFIG.GITHUB_EDIT_URL}/${currentFile}`;
 		</style>
 	</head>
 
-	<body>
+	<body class="w-full">
 		<Header currentPage={currentPage} />
 		<main class="layout">
 			<aside id="grid-left" class="grid-sidebar" title="Site Navigation">

@@ -14,13 +14,13 @@ const lang = getLanguageFromURL(currentPage);
 ---
 
 <header>
-	<nav class="nav-wrapper" title="Top Navigation">
-		<div class="menu-toggle">
+	<nav class="flex flex-row items-center border-2 w-full" title="Top Navigation">
+		<div class="md:hidden">
 			<SidebarToggle client:idle />
 		</div>
-		<div class="logo flex">
+		<div class="border-2">
 			<a href="/">
-				<h1>{CONFIG.SITE.title ?? 'Documentation'}</h1>
+				<h1>{CONFIG.SITE.title}</h1>
 			</a>
 		</div>
 		<div style="flex-grow: 1;"></div>
@@ -47,7 +47,7 @@ const lang = getLanguageFromURL(currentPage);
 
 
 	.nav-wrapper {
-		display: flex;
+	
 		align-items: center;
 		justify-content: flex-end;
 		gap: 1em;
