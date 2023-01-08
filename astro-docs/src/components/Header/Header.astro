@@ -13,51 +13,21 @@ const { currentPage } = Astro.props as Props;
 const lang = getLanguageFromURL(currentPage);
 ---
 
-<header class="flex justify-around fixed opacity-90 h-30 w-full z-50 bg-white border-b-slate-500">
+<header class="flex justify-around fixed opacity-90 h-30 w-full z-50 bg-white border-b">
 	<nav class="flex flex-row items-center w-full" title="Top Navigation">
 		<div class="md:hidden">
 			<SidebarToggle client:idle />
 		</div>
-		<div class="font-bold text-xl">
+		<div class="flex-grow w-3/5 font-bold text-xl">
 			<a href="/">
 				<h1>{CONFIG.SITE.title}</h1>
 			</a>
 		</div>
-		<div class="flex-grow"></div>
+		<div class="flex-grow w-1/5"></div>
 		{KNOWN_LANGUAGE_CODES.length > 1 && <LanguageSelect lang={lang} client:idle />}
-		<div class="search-item">
+		<div class="flex-grow w-1/5">
 			<Search client:idle />
 		</div>
 	</nav>
 </header>
 
-<style>
-
-	/** Style Algolia */
-	:root {
-		--docsearch-primary-color: var(--theme-accent);
-		--docsearch-logo-color: var(--theme-text);
-	}
-
-	.search-item {
-		display: none;
-		position: relative;
-		z-index: 10;
-		flex-grow: 1;
-		padding-right: 0.7rem;
-		display: flex;
-		max-width: 200px;
-	}
-
-	@media (min-width: 50em) {
-		.search-item {
-			max-width: 400px;
-		}
-	}
-</style>
-
-<style is:global>
-	.search-item > * {
-		flex-grow: 1;
-	}
-</style>
