@@ -13,7 +13,7 @@ const { currentPage } = Astro.props as Props;
 const lang = getLanguageFromURL(currentPage);
 ---
 
-<header class="flex justify-around fixed opacity-90 h-30 w-full z-50 bg-white border-b">
+<header class="flex justify-around fixed opacity-90 h-30 w-full z-50 bg-white border-b dark:bg-black">
 	<nav class="flex flex-row items-center w-full" title="Top Navigation">
 		<div class="md:hidden">
 			<SidebarToggle client:idle />
