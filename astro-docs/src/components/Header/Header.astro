@@ -18,10 +18,16 @@ const lang = getLanguageFromURL(currentPage);
 		<div class="md:hidden">
 			<SidebarToggle client:idle />
 		</div>
-		<div class="flex-grow w-3/5 font-bold text-xl">
-			<a href="/">
-				<h1>{CONFIG.SITE.title}</h1>
+		<div class="flex-grow w-3/5 flex flex-row">
+			<img class="basis-3" src="/logos/svg/logo_etlbox_32x32.svg" alt="ETLBox" width="32" height="32">
+			<a class="basis-1" href="/">
+				<h1 class="text-xl font-bold">{CONFIG.SITE.title}</h1>
 			</a>
+			<a class="basis-1" href="/Docs">Docs</a>
+			<h3><a href="/Docs">Recipes</a></h3>
+			<h3><a href="/Docs">API</a></h3>
+			<h3><a href="/Docs">Pricing</a></h3>
+			<h3><a href="/Docs">Support</a></h3>
 		</div>
 		<div class="flex-grow w-1/5"></div>
 		{KNOWN_LANGUAGE_CODES.length > 1 && <LanguageSelect lang={lang} client:idle />}

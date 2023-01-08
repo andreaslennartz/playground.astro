@@ -33,16 +33,16 @@ const githubEditUrl = `${CONFIG.GITHUB_EDIT_URL}/${currentFile}`;
 	<body class="w-full p-2">
 		<Header currentPage={currentPage} />
 		<div class="mt-12">
-		<main class="grid grid-cols-3 border-4">
-			<aside id="grid-left" class="p-2" title="Site Navigation">
+		<main class="grid grid-cols-6">
+			<aside id="grid-left" class="border-r p-2" title="Site Navigation">
 				<LeftSidebar currentPage={currentPage} />
 			</aside>
-			<div id="grid-main" class="p-2 col-start-2">
+			<div id="grid-main" class="p-2 col-start-2 col-span-4">
 				<PageContent frontmatter={frontmatter} headings={headings} githubEditUrl={githubEditUrl}>
 					<slot />
 				</PageContent>
 			</div>
-			<aside id="grid-right" class="p-2 col-start-3" title="Table of Contents">
+			<aside id="grid-right" class="p-2 col-start-6" title="Table of Contents">
 				<RightSidebar headings={headings} githubEditUrl={githubEditUrl} />
 			</aside>
 		</main>
