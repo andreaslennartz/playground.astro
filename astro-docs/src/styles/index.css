@@ -22,12 +22,12 @@
 .header-link:hover,
 .header-link:focus,
 .header-link:focus-within {
-	border-inline-start-color: var(--theme-accent-secondary);
+	border-inline-start-color: blue;
 }
 
 .header-link:hover a,
 .header-link a:focus {
-	color: var(--theme-text);
+	color: red;
 	text-decoration: underline;
 }
 .header-link svg {
@@ -52,7 +52,7 @@
 
 /* Highlight TOC header link matching the current scroll position */
 .current-header-link {
-	background-color: var(--theme-bg-accent);
+	background-color: yellow;
 	/* Indicates the current heading for forced colors users in older browsers */
 	outline: 1px solid transparent;
 }
@@ -64,5 +64,5 @@
 }
 
 .current-header-link a {
-	color: var(--theme-text);
+	color: green;
 }
