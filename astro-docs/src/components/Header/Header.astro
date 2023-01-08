@@ -13,17 +13,17 @@ const { currentPage } = Astro.props as Props;
 const lang = getLanguageFromURL(currentPage);
 ---
 
-<header>
-	<nav class="flex flex-row items-center border-2 w-full" title="Top Navigation">
+<header class="flex justify-around fixed opacity-90 h-30 w-full z-50 bg-white border-b-slate-500">
+	<nav class="flex flex-row items-center w-full" title="Top Navigation">
 		<div class="md:hidden">
 			<SidebarToggle client:idle />
 		</div>
-		<div class="border-2">
+		<div class="font-bold text-xl">
 			<a href="/">
 				<h1>{CONFIG.SITE.title}</h1>
 			</a>
 		</div>
-		<div style="flex-grow: 1;"></div>
+		<div class="flex-grow"></div>
 		{KNOWN_LANGUAGE_CODES.length > 1 && <LanguageSelect lang={lang} client:idle />}
 		<div class="search-item">
 			<Search client:idle />
@@ -32,42 +32,6 @@ const lang = getLanguageFromURL(currentPage);
 </header>
 
 <style>
-	header {
-		z-index: 11;
-		height: var(--theme-navbar-height);
-		width: 100%;
-		background-color: var(--theme-navbar-bg);
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		overflow: hidden;
-		position: sticky;
-		top: 0;
-	}
-
-
-	.nav-wrapper {
-	
-		align-items: center;
-		justify-content: flex-end;
-		gap: 1em;
-		width: 100%;
-		max-width: 82em;
-		padding: 0 1rem;
-	}
-
-	@media (min-width: 50em) {
-		header {
-			position: static;
-			padding: 2rem 0rem;
-		}
-
-		
-
-		.menu-toggle {
-			display: none;
-		}
-	}
 
 	/** Style Algolia */
 	:root {

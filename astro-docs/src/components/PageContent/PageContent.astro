@@ -14,9 +14,9 @@ const { frontmatter, headings, githubEditUrl } = Astro.props as Props;
 const title = frontmatter.title;
 ---
 
-<article id="article" class="max-w-xl">
+<article id="article" class="w-full">
 	<section class="main-section">
-		<h1 class="content-title" id="overview">{title}</h1>
+		<h1 id="overview">{title}</h1>
 		<nav class="block sm:hidden">
 			<TableOfContents client:media="(max-width: 50em)" headings={headings} />
 		</nav>
