@@ -1,8 +1,13 @@
 
+::selection {
+	color: green;
+	background-color: red;
+}
+
 .header-link {
 	font-size: 1em;
 	transition: border-inline-start-color 100ms ease-out, background-color 200ms ease-out;
-	border-left: 4px solid var(--theme-divider);
+	border-left: 4px solid gray;
 }
 
 .header-link a {
