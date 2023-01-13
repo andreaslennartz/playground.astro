@@ -1,11 +1,10 @@
 /** @jsxImportSource react */
 import type { FunctionComponent } from 'react';
-import './LanguageSelect.css';
 import { KNOWN_LANGUAGES, langPathRegex } from '../../languages';
 
 const LanguageSelect: FunctionComponent<{ lang: string }> = ({ lang }) => {
 	return (
-		<div className="language-select-wrapper">
+		<div className="flex">
 			<svg
 				aria-hidden="true"
 				focusable="false"
@@ -25,7 +24,7 @@ const LanguageSelect: FunctionComponent<{ lang: string }> = ({ lang }) => {
 				/>
 			</svg>
 			<select
-				className="language-select"
+				className=""
 				value={lang}
 				onChange={(e) => {
 					const newLang = e.target.value;
