@@ -1,0 +1,15 @@
+---
+export interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+    <script src="/js/flowbite/flowbite.min.js" is:inline></script>
+	<body>
+		<slot />
+	</body>
+</html>
