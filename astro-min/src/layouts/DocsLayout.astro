@@ -34,7 +34,7 @@ const canonicalURL = new URL('https://www.etlbox.net')
         </title>
     </head>
 
-    <body class="w-full p-2">
+    <body class="w-full p-2 dark:bg-slate-700">
         <header class="fixed opacity-70">
             <Header />
         </header>
@@ -54,25 +54,5 @@ const canonicalURL = new URL('https://www.etlbox.net')
         <footer>
             <div>Footer</div>
         </footer>
-    </body><!--
-<body class="w-full p-2">
-	<Header currentPage={currentPage} />
-	<div class="mt-12">
-	<main class="grid grid-cols-6">
-		<aside id="grid-left" class="border-r p-2" title="Site Navigation">
-			<LeftSidebar currentPage={currentPage} />
-		</aside>
-		<div id="grid-main" class="p-2 col-start-2 col-span-4">
-			<PageContent frontmatter={frontmatter} headings={headings} githubEditUrl={githubEditUrl}>
-				<slot />
-			</PageContent>
-		</div>
-		<aside id="grid-right" class="p-2 col-start-6" title="Table of Contents">
-			<RightSidebar headings={headings} githubEditUrl={githubEditUrl} />
-		</aside>
-	</main>
-	</div>
-	<Footer path={currentFile} />
-</body>
- -->
+    </body>
 </html>
