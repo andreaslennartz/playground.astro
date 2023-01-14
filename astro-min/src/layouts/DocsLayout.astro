@@ -2,8 +2,7 @@
 import LeftSidebar from '../components/LeftSidebar/LeftSidebar.astro'
 import * as CONFIG from '../config'
 import Header from '../components/Header/Header.astro'
-import HeadCommon from '../components/Head/HeadCommon.astro'
-import HeadSEO from '../components/Head/HeadSEO.astro'
+import BaseLayout from './BaseLayout.astro'
 import type { MarkdownHeading } from 'astro'
 
 type Props = {
@@ -16,43 +15,29 @@ const canonicalURL = new URL('https://www.etlbox.net')
 //const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 ---
 
-<!DOCTYPE html>
-<html lang={frontmatter.lang ?? 'en'}>
-    <head>
-        <HeadCommon />
-        <HeadSEO
-            title={frontmatter.title}
-            description={frontmatter.description}
-            canonicalUrl={canonicalURL}
-        />
-        <title>
-            {
-                frontmatter.title
-                    ? `${frontmatter.title} - ${CONFIG.SITE.title}`
-                    : CONFIG.SITE.title
-            }
-        </title>
-    </head>
-
-    <body class="w-full p-2 dark:bg-slate-700">
-        <header class="fixed opacity-70">
-            <Header />
-        </header>
-        <main class="mt-12 grid grid-cols-6">
-            <div class="w-64">
-                <aside class="fixed w-64" aria-label="LeftSidebar">
-                    <LeftSidebar />
-                </aside>
-            </div>
-            <div class="p-2 col-start-2 col-span-4" aria-label="MainArticle">
+<BaseLayout
+    title={frontmatter.title}
+    descrption={frontmatter.description}
+    canonicalUrl={canonicalURL}>
+    <header class="w-full fixed opacity-70">
+        <Header />
+    </header>
+    <main class="mt-12 grid grid-cols-6">
+        <div class="w-64">
+            <aside class="fixed w-64" aria-label="LeftSidebar">
+                <LeftSidebar />
+            </aside>
+        </div>
+        <div class="p-2 col-start-2 col-span-4" aria-label="MainArticle">
+            <article class="prose">
                 <slot />
-            </div>
-            <div id="toc" class="p-2 col-start-6" aria-label="Table of Content">
-                <aside class="fixed" title="Table of Contents">TOC</aside>
-            </div>
-        </main>
-        <footer>
-            <div>Footer</div>
-        </footer>
-    </body>
-</html>
+            </article>
+        </div>
+        <div id="toc" class="p-2 col-start-6" aria-label="Table of Content">
+            <aside class="fixed" title="Table of Contents">TOC</aside>
+        </div>
+    </main>
+    <footer>
+        <div>Footer</div>
+    </footer>
+</BaseLayout>

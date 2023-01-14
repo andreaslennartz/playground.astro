@@ -1,28 +1,11 @@
 ---
-import HeadCommon from '../components/Head/HeadCommon.astro'
-import HeadSEO from '../components/Head/HeadSEO.astro'
-import * as CONFIG from '../config'
+import BaseLayout from './BaseLayout.astro'
 
 //const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 const canonicalURL = new URL('https://www.etlbox.net')
 const title = 'Title here'
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <HeadCommon />
-        <HeadSEO
-            title={title}
-            description="Description here"
-            canonicalUrl={canonicalURL}
-        />
-        <title>
-            {title ? `${title} - ${CONFIG.SITE.title}` : CONFIG.SITE.title}
-        </title>
-    </head>
-
-    <body>
-        <slot />
-    </body>
-</html>
+<BaseLayout title={title} descrption="None" canonicalUrl={canonicalURL}>
+    <slot />
+</BaseLayout>

@@ -1,0 +1,36 @@
+---
+import HeadCommon from '../components/Head/HeadCommon.astro'
+import HeadSEO from '../components/Head/HeadSEO.astro'
+import * as CONFIG from '../config'
+
+type Props = {
+    title: string
+    descrption: string
+    canonicalUrl: URL
+}
+
+const headerData = Astro.props as Props
+---
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <HeadCommon />
+        <HeadSEO
+            title={headerData.title}
+            description={headerData.descrption}
+            canonicalUrl={headerData.canonicalUrl}
+        />
+        <title>
+            {
+                headerData.title
+                    ? `${headerData.title} - ${CONFIG.SITE.title}`
+                    : CONFIG.SITE.title
+            }
+        </title>
+    </head>
+
+    <body class="w-full p-2 dark:bg-gray-900">
+        <slot />
+    </body>
+</html>
