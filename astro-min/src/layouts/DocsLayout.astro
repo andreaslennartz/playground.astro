@@ -1,16 +1,78 @@
 ---
-import LeftSidebar from '../components/LeftSidebar/LeftSidebar.astro';
-import BaseLayout from './BaseLayout.astro'
+import LeftSidebar from '../components/LeftSidebar/LeftSidebar.astro'
+import * as CONFIG from '../config'
+import Header from '../components/Header/Header.astro'
+import HeadCommon from '../components/Head/HeadCommon.astro'
+import HeadSEO from '../components/Head/HeadSEO.astro'
+import type { MarkdownHeading } from 'astro'
 
-export interface Props {
-	title: string;
+type Props = {
+    frontmatter: CONFIG.Frontmatter
+    headings: MarkdownHeading[]
 }
 
-const { title } = Astro.props;
+const { frontmatter, headings } = Astro.props as Props
+const canonicalURL = new URL('https://www.etlbox.net')
+//const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 ---
 
-<BaseLayout title={title}>
-	<LeftSidebar />
-	<slot />
-</BaseLayout>
+<!DOCTYPE html>
+<html lang={frontmatter.lang ?? 'en'}>
+    <head>
+        <HeadCommon />
+        <HeadSEO
+            title={frontmatter.title}
+            description={frontmatter.description}
+            canonicalUrl={canonicalURL}
+        />
+        <title>
+            {
+                frontmatter.title
+                    ? `${frontmatter.title} - ${CONFIG.SITE.title}`
+                    : CONFIG.SITE.title
+            }
+        </title>
+    </head>
 
+    <body class="w-full p-2">
+        <header class="fixed opacity-70">
+            <Header />
+        </header>
+        <main class="mt-12 grid grid-cols-6">
+            <div class="w-64">
+                <aside class="fixed w-64" aria-label="LeftSidebar">
+                    <LeftSidebar />
+                </aside>
+            </div>
+            <div class="p-2 col-start-2 col-span-4" aria-label="MainArticle">
+                <slot />
+            </div>
+            <div id="toc" class="p-2 col-start-6" aria-label="Table of Content">
+                <aside class="fixed" title="Table of Contents">TOC</aside>
+            </div>
+        </main>
+        <footer>
+            <div>Footer</div>
+        </footer>
+    </body><!--
+<body class="w-full p-2">
+	<Header currentPage={currentPage} />
+	<div class="mt-12">
+	<main class="grid grid-cols-6">
+		<aside id="grid-left" class="border-r p-2" title="Site Navigation">
+			<LeftSidebar currentPage={currentPage} />
+		</aside>
+		<div id="grid-main" class="p-2 col-start-2 col-span-4">
+			<PageContent frontmatter={frontmatter} headings={headings} githubEditUrl={githubEditUrl}>
+				<slot />
+			</PageContent>
+		</div>
+		<aside id="grid-right" class="p-2 col-start-6" title="Table of Contents">
+			<RightSidebar headings={headings} githubEditUrl={githubEditUrl} />
+		</aside>
+	</main>
+	</div>
+	<Footer path={currentFile} />
+</body>
+ -->
+</html>

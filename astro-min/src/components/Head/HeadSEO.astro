@@ -1,0 +1,34 @@
+---
+import { SITE, Frontmatter } from '../../config'
+
+export interface Props {
+    title: string
+    description: string
+    canonicalUrl: URL
+}
+
+const { title, description, canonicalUrl } = Astro.props as Props
+const formattedContentTitle = `${title} - ${SITE.title}`
+---
+
+<!-- Page Metadata -->
+<link rel="canonical" href={canonicalUrl} />
+
+<!-- OpenGraph Tags -->
+<meta property="og:title" content={formattedContentTitle} />
+<meta property="og:type" content="article" />
+<meta property="og:url" content={canonicalUrl} />
+<!--
+<meta
+    property="og:locale"
+    content={frontmatter.ogLocale ?? SITE.defaultLanguage}
+/>
+<meta property="og:image" content={canonicalImageSrc} />
+<meta property="og:image:alt" content={imageAlt} />
+-->
+<meta
+    name="description"
+    property="og:description"
+    content={description ?? SITE.description}
+/>
+<meta property="og:site_name" content={SITE.title} />
