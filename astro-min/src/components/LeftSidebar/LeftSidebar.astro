@@ -1,5 +1,82 @@
 ---
+import { getLanguageFromURL } from '../../jshelper/languages'
+import { SIDEBAR_DOCS } from '../../config'
+
+/*type Props = {
+    currentPage: string
+}
+*/
+
+const currentPage = Astro.url.pathname
+//const { currentPage } = Astro.props as Props
+const currentPageMatch = currentPage.endsWith('/')
+    ? currentPage.slice(1, -1)
+    : currentPage.slice(1)
+const langCode = getLanguageFromURL(currentPage)
+const sidebar = SIDEBAR_DOCS[langCode]
+
+console.log(currentPageMatch)
+console.log(langCode)
+console.log(currentPage)
 ---
+
+<div class="px-3 py-4 rounded">
+    <ul class="space-y-2">
+        {
+            Object.entries(sidebar).map(([header, children]) => {
+                const headerid = header.replace(' ', '')
+                return (
+                    <li>
+                        <button
+                            type="button"
+                            class="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                            aria-controls={headerid}
+                            data-collapse-toggle={headerid}>
+                            <span
+                                class="flex-1 ml-3 text-left whitespace-nowrap"
+                                sidebar-toggle-item>
+                                {header}
+                            </span>
+                            <svg
+                                sidebar-toggle-item
+                                class="w-6 h-6"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                    clip-rule="evenodd"
+                                />
+                            </svg>
+                        </button>
+                        <ul id={headerid} class="py-2 space-y-2">
+                            {children.map((child) => {
+                                const url = Astro.site?.pathname + child.link
+                                return (
+                                    <li>
+                                        <a
+                                            href={url}
+                                            class="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                                            aria-current={
+                                                currentPageMatch === child.link
+                                                    ? 'page'
+                                                    : false
+                                            }>
+                                            {child.text}
+                                        </a>
+                                    </li>
+                                )
+                            })}
+                        </ul>
+                    </li>
+                )
+            })
+        }
+    </ul>
+</div>
+
+<!--
 
 <div class="px-3 py-4 rounded">
     <ul class="space-y-2">
@@ -276,3 +353,4 @@
         </li>
     </ul>
 </div>
+-->
