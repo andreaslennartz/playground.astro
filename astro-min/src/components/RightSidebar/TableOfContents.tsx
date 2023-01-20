@@ -20,7 +20,7 @@ const TableOfContents: FunctionalComponent<{ headings: MarkdownHeading[] }> = ({
 			const titles = document.querySelectorAll('article :is(h1, h2, h3, h4)');
 			itemOffsets.current = Array.from(titles).map((title) => ({
 				id: title.id,
-				topOffset: title.getBoundingClientRect().top + window.scrollY,
+				topOffset: title.getBoundingClientRect().top + window.scrollY + 300,
 			}));
 		};
 
@@ -49,7 +49,7 @@ const TableOfContents: FunctionalComponent<{ headings: MarkdownHeading[] }> = ({
 		const observerOptions: IntersectionObserverInit = {
 			// Negative top margin accounts for `scroll-margin`.
 			// Negative bottom margin means heading needs to be towards top of viewport to trigger intersection.
-			rootMargin: '-100px 0% -66%',
+			rootMargin: '0px 200% -200%',
 			threshold: 1,
 		};
 

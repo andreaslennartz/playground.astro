@@ -4,6 +4,7 @@ import * as CONFIG from '../config'
 import Header from '../components/Header/Header.astro'
 import BaseLayout from './BaseLayout.astro'
 import type { MarkdownHeading } from 'astro'
+import RightSidebar from '../components/RightSidebar/RightSidebar.astro'
 
 type Props = {
     frontmatter: CONFIG.Frontmatter
@@ -50,20 +51,7 @@ const canonicalURL = new URL('https://www.etlbox.net')
                         <div
                             class="flex overflow-y-auto sticky top-28 flex-col justify-between pt-10 pb-6 h-[calc(100vh-5rem)]"
                             title="Table of Contents">
-                            <ul>
-                                <li>Tests sdfds</li>
-                                <li>Tests sdfds</li>
-                                <li>Tests sdfds</li>
-                                <li>Tests sdfds</li>
-                                <li>Tests sdfds</li>
-                                <li>Tests sdfds</li>
-                                <li>Tests sdfds</li>
-                                <li>Tests sdfds</li>
-                                <li>Tests sdfds</li>
-                                <li>Tests sdfds</li>
-                                <li>Tests sdfds</li>
-                                <li>Tests sdfds</li>
-                            </ul>
+                            <RightSidebar headings={headings} />
                         </div>
                     </aside>
                 </div>
